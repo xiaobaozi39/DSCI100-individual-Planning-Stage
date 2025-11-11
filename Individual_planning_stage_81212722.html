@@ -8358,7 +8358,52 @@ There were issues with some computations   <span class="ansi-yellow-intense-fg a
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b197de5c-5c07-4a0b-8d51-5fa2c188a39d">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b197de5c-5c07-4a0b-8d51-5fa2c188a39d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [55]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">2025</span><span class="p">)</span>
+<span class="n">final_fit</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="n">log_workflow</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">players_train</span><span class="p">)</span>
+
+<span class="n">final_results</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="n">final_fit</span><span class="p">,</span><span class="w"> </span><span class="n">players_test</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">bind_cols</span><span class="p">(</span><span class="n">players_test</span><span class="p">)</span>
+
+<span class="n">final_metrics</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">final_results</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">metrics</span><span class="p">(</span><span class="n">truth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">subscribe</span><span class="p">,</span><span class="w"> </span><span class="n">estimate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">.pred_class</span><span class="p">)</span>
+
+<span class="n">final_metrics</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<table class="dataframe">
+<caption>A tibble: 2 × 3</caption>
+<thead>
+<tr><th scope="col">.metric</th><th scope="col">.estimator</th><th scope="col">.estimate</th></tr>
+<tr><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+<tr><td>accuracy</td><td>binary</td><td>0.725000</td></tr>
+<tr><td>kap     </td><td>binary</td><td>0.140625</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a68fe04e-0a42-4cc6-a9cd-6d683011857d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
